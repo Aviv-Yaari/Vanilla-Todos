@@ -1,0 +1,33 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #20232A;
+    color: white;
+}
+
+h1 {
+    margin: 0 50px;
+    padding: 20px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+button.clicked {
+    background-color: gainsboro;
+}
+
+button:hover {
+    background-color: gainsboro !important;
+    transition: background-color 340ms;
+}

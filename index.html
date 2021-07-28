@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo MVC</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/panel.css">
+    <link rel="stylesheet" href="css/main-content.css">
+    <link rel="stylesheet" href="css/todo-list.css">
+</head>
+
+<body onload="onInit()">
+    <header>
+        <h1>Todo MVC</h1>
+    </header>
+
+    <section class="panel">
+        <div class="panel-item">
+            Filter By:
+            <button class="btn-filter clicked" onclick="onSetFilter('all', this)">All</button>
+            <button class="btn-filter" onclick="onSetFilter('active', this)">Active</button>
+            <button class="btn-filter" onclick="onSetFilter('done', this)">Completed</button>
+        </div>
+        <div class="panel-item">
+            Sort By:
+            <button onclick="onSetSort('importance')">Importance</button>
+            <button onclick="onSetSort('txt')">Text</button>
+            <button onclick="onSetSort('createdAt')">Created At</button>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div>
+            <span class="todo-count"></span>
+            items left
+        </div>
+        <form onsubmit="onAddTodo(event)" action="">
+            <div class="form-inputs">
+                <input id="newTodoTxt" type="text" placeholder="What needs to be done" required />
+                <input id="newTodoImp" type="number" placeholder="Importance" min="1" max="5" required />
+            </div>
+            <button onclick="">Add</button>
+        </form>
+
+
+        <ul class="todo-list">
+        </ul>
+
+    </main>
+
+
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/todo.service.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
