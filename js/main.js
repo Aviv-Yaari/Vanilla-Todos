@@ -7,7 +7,7 @@ function renderTodos() {
   const elTodoList = document.querySelector('.todo-list');
   const todos = getTodosForDisplay();
   if (!todos.length) {
-    elTodoList.innerHTML = `No ${filterBy.textContent !== 'All' ? filterBy.textContent : ''} todos`;
+    elTodoList.innerHTML = `No ${gFilterBy !== 'all' ? gFilterBy : ''} todos`;
     return;
   }
 
@@ -20,8 +20,10 @@ function renderTodos() {
       moveDownHTML = '';
 
     importanceTag = `<div class="importance importance-${importance}">${importance}</div>`;
-    if (!isFirst) moveUpHTML = `<button onclick="onMove('UP',${index}, event)">🔼</button>`;
-    if (!isLast) moveDownHTML = `<button onclick="onMove('DOWN',${index}, event)">🔽</button>`;
+    if (!isFirst && gFilterBy === 'all')
+      moveUpHTML = `<button onclick="onMove('UP',${index}, event)">🔼</button>`;
+    if (!isLast && gFilterBy === 'all')
+      moveDownHTML = `<button onclick="onMove('DOWN',${index}, event)">🔽</button>`;
     const btnRemoveHTML = `<button class="todo-remove" onclick="onRemoveTodo('${id}', event)">x</button>`;
 
     return `<li class="${isDone ? 'done' : ''}" onclick="onToggleTodo('${id}')">
